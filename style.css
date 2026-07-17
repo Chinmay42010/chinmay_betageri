@@ -196,6 +196,7 @@ body{
     flex-wrap:wrap;
     gap:12px;
     margin-top:20px;
+    border-radius: 0;
 }
 
 .badges img{
@@ -204,7 +205,4 @@ body{
 
 .badges img:hover{
     transform:scale(1.05);
-}
-img {
-    border-radius: 50%;
 }
