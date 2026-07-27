@@ -44,9 +44,9 @@ I'm a Computer Science graduate passionate about building scalable web applicati
 
 ## Connect With Me
 
-- Portfolio: [Portfolio](https://chinmaybetageri.vercel.app)
-- LinkedIn: [Linkedin](https://www.linkedin.com/in/chinmay-betageri-60a4b924b/)
-- Email: **kbchinmay004@gmail.com**
+- [Take a look at my portfolio](https://chinmaybetageri.vercel.app)
+- [Connect with me on Linkedin](https://www.linkedin.com/in/chinmay-betageri-60a4b924b/)
+- [Contact me](mailto:kbchinmay004@gmail.com)
 
 ---
 
