@@ -10,6 +10,9 @@
   --primary-hover: #9d2211;
   --primary-active: #b01e0a;
   --on-primary: #ffffff;
+  --nav-bg: rgba(24, 24, 24, 0.82);
+  --outline-border: rgba(255, 255, 255, 0.65);
+  --outline-hover-bg: rgba(255, 255, 255, 0.06);
 
   --s-xxxs: 4px;
   --s-xxs: 8px;
@@ -24,6 +27,19 @@
   --font: "Inter", -apple-system, system-ui, sans-serif;
   --container: 1280px;
   --nav-h: 64px;
+}
+
+:root[data-theme="light"] {
+  --canvas: #ffffff;
+  --canvas-elevated: #f7f7f7;
+  --ink: #181818;
+  --body: #555555;
+  --muted: #666666;
+  --muted-soft: #8a8a8a;
+  --hairline: #d2d2d2;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --outline-border: rgba(24, 24, 24, 0.5);
+  --outline-hover-bg: rgba(24, 24, 24, 0.06);
 }
 
 * {
@@ -253,7 +269,7 @@ html.js body.ready .hero-meta {
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
-  background: rgba(24, 24, 24, 0.82);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--hairline);
@@ -321,6 +337,40 @@ html.js body.ready .hero-meta {
   height: 2px;
   background: var(--ink);
   transition: 0.3s;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: var(--s-xs);
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-toggle .icon-sun {
+  display: inline;
 }
 
 /* ============ HERO ============ */
@@ -447,12 +497,12 @@ html.js body.ready .hero-meta {
 .btn-outline {
   background: transparent;
   color: var(--ink);
-  border-color: rgba(255, 255, 255, 0.65);
+  border-color: var(--outline-border);
 }
 
 .btn-outline:hover {
   border-color: var(--ink);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--outline-hover-bg);
 }
 
 .hero-meta {

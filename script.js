@@ -3,6 +3,25 @@ window.scrollTo(0, 0);
 
 document.documentElement.classList.add("js");
 
+const themeToggle = document.getElementById("themeToggle");
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("theme", theme);
+  themeToggle.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
+  );
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const next =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    setTheme(next);
+  });
+}
+
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const intro = document.getElementById("introOverlay");
 
