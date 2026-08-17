@@ -467,21 +467,83 @@
           <h2 class="section-title">Certifications</h2>
           <div class="section-line"></div>
         </div>
-        <div class="cert-card reveal">
-          <div class="cert-pills">
+        <div class="cert-list">
+          <div class="cert-row reveal">
+            <button
+              type="button"
+              class="cert-thumb"
+              data-cert-img="certs/cloud-computing.png"
+              data-cert-url="https://drive.google.com/file/d/1exCkOcPYDlRzBnBh6Qw-By_2AUKloK5o/view"
+              aria-label="View Cloud Computing Fundamentals certificate"
+            >
+              <img
+                src="certs/cloud-computing.png"
+                alt="Cloud Computing Fundamentals certificate"
+                loading="lazy"
+              />
+            </button>
+            <div class="cert-main">
+              <div class="cert-name">Cloud Computing Fundamentals</div>
+              <div class="cert-issuer">Infosys SpringBoard</div>
+            </div>
             <a
               href="https://drive.google.com/file/d/1exCkOcPYDlRzBnBh6Qw-By_2AUKloK5o/view"
               target="_blank"
               rel="noopener noreferrer"
-              class="cert-link"
-              >Infosys SpringBoard - Cloud Computing Fundamentals</a
+              class="cert-view"
+              >View <span class="arrow">→</span></a
             >
+          </div>
+          <div class="cert-row reveal">
+            <button
+              type="button"
+              class="cert-thumb"
+              data-cert-img="certs/cyber-security.png"
+              data-cert-url="https://drive.google.com/file/d/12zJRgzsCXt1aYWAG_Dh0ngrt7BpLwcS9/view"
+              aria-label="View Introduction to Cyber Security certificate"
+            >
+              <img
+                src="certs/cyber-security.png"
+                alt="Introduction to Cyber Security certificate"
+                loading="lazy"
+              />
+            </button>
+            <div class="cert-main">
+              <div class="cert-name">Introduction to Cyber Security</div>
+              <div class="cert-issuer">Infosys SpringBoard</div>
+            </div>
             <a
               href="https://drive.google.com/file/d/12zJRgzsCXt1aYWAG_Dh0ngrt7BpLwcS9/view"
               target="_blank"
               rel="noopener noreferrer"
-              class="cert-link"
-              >Infosys SpringBoard - Introduction to Cyber Security</a
+              class="cert-view"
+              >View <span class="arrow">→</span></a
+            >
+          </div>
+          <div class="cert-row reveal">
+            <button
+              type="button"
+              class="cert-thumb"
+              data-cert-img="certs/mongodb-rag.png"
+              data-cert-url="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
+              aria-label="View Building RAG Apps Using MongoDB certificate"
+            >
+              <img
+                src="certs/mongodb-rag.png"
+                alt="Building RAG Apps Using MongoDB certificate"
+                loading="lazy"
+              />
+            </button>
+            <div class="cert-main">
+              <div class="cert-name">Building RAG Apps Using MongoDB</div>
+              <div class="cert-issuer">MongoDB University</div>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="cert-view"
+              >View <span class="arrow">→</span></a
             >
           </div>
         </div>
@@ -613,6 +675,23 @@
         <span>Made with OpenCode</span>
       </div>
     </footer>
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview">
+      <div class="lightbox-inner">
+        <img id="lightboxImg" class="lightbox-img" src="" alt="" />
+        <a
+          id="lightboxLink"
+          class="lightbox-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Open in Google Drive <span class="arrow">→</span></a
+        >
+      </div>
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close">
+        ✕
+      </button>
+    </div>
 
     <script src="script.js"></script>
   </body>

@@ -51,6 +51,42 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxLink = document.getElementById("lightboxLink");
+const lightboxClose = document.getElementById("lightboxClose");
+
+function openLightbox(cert) {
+  if (!lightbox) return;
+  lightboxImg.src = cert.dataset.certImg;
+  lightboxImg.alt = cert.getAttribute("aria-label");
+  lightboxLink.href = cert.dataset.certUrl;
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".cert-thumb").forEach((thumb) => {
+  thumb.addEventListener("click", () => openLightbox(thumb));
+});
+
+if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+
+if (lightbox) {
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeLightbox();
+});
+
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "r" || e.key === "R") {
