@@ -91,7 +91,25 @@ function closeLightbox() {
 }
 
 document.querySelectorAll(".cert-thumb").forEach((thumb) => {
-  thumb.addEventListener("click", () => openLightbox(thumb));
+  thumb.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openLightbox(thumb);
+  });
+});
+
+document.querySelectorAll(".cert-name").forEach((name) => {
+  name.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openLightbox(name.closest(".cert-row").querySelector(".cert-thumb"));
+  });
+});
+
+document.querySelectorAll(".cert-row").forEach((row) => {
+  row.addEventListener("click", (e) => {
+    if (e.target.classList.contains("cert-view")) return;
+    const thumb = row.querySelector(".cert-thumb");
+    if (thumb) openLightbox(thumb);
+  });
 });
 
 if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);

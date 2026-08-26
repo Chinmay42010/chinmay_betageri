@@ -210,7 +210,9 @@ a:focus-visible {
 .hero-sub,
 .hero-cta,
 .hero-meta {
-  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html.js body:not(.ready) .hero-label,
@@ -351,7 +353,9 @@ html.js body.ready .hero-meta {
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .theme-toggle:hover {
@@ -398,7 +402,7 @@ html.js body.ready .hero-meta {
     rgba(24, 24, 24, 0.6) 0%,
     rgba(24, 24, 24, 0.5) 40%,
     rgba(24, 24, 24, 0.45) 60%,
-    rgba(24, 24, 24, 0.94) 100%
+    rgba(24, 24, 24, 0.45) 60%
   );
   z-index: 1;
 }
@@ -476,7 +480,10 @@ html.js body.ready .hero-meta {
   border-radius: 0;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn-primary {
@@ -759,7 +766,9 @@ section {
   border-radius: 9999px;
   border: 1px solid var(--hairline);
   color: var(--ink);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .skill-tag:hover {
@@ -918,7 +927,9 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .project-link .arrow {
@@ -988,6 +999,7 @@ section {
 }
 
 .cert-row {
+  cursor: pointer;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: var(--s-xs);
@@ -1013,12 +1025,14 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(1);
-  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: grayscale(0);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
+/* Hover color override for thumb only */
 .cert-row:hover .cert-thumb img {
-  filter: grayscale(0);
   transform: scale(1.03);
 }
 
@@ -1032,6 +1046,7 @@ section {
   line-height: 1.4;
   letter-spacing: 0.08px;
   color: var(--ink);
+  cursor: pointer;
 }
 
 .cert-issuer {
@@ -1077,7 +1092,9 @@ section {
   background: rgba(24, 24, 24, 0.94);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
 }
 
 .lightbox.open {
@@ -1127,7 +1144,9 @@ section {
   color: var(--ink);
   font-size: 16px;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .lightbox-close:hover {
@@ -1213,8 +1232,7 @@ footer {
 .collab-card {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-areas:
-    "main side";
+  grid-template-areas: "main side";
   align-items: center;
   gap: var(--s-xs) var(--s-lg);
   background: var(--canvas-elevated);
@@ -1321,7 +1339,9 @@ footer {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.active {
@@ -1396,7 +1416,8 @@ footer {
     gap: var(--s-xxs);
   }
 
-  .cert-row {
+.cert-row {
+  cursor: pointer;
     grid-template-columns: auto 1fr;
     gap: var(--s-xs);
   }
