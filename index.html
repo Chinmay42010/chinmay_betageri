@@ -51,19 +51,28 @@
         id="themeToggle"
         class="theme-toggle"
         type="button"
-        aria-label="Switch to light theme"
+        role="switch"
+        aria-checked="false"
+        aria-label="Toggle theme"
       >
-        <span class="icon-moon" aria-hidden="true">☾</span>
-        <span class="icon-sun" aria-hidden="true">☀</span>
+        <span class="theme-toggle-track">
+          <span class="icon-moon" aria-hidden="true">☾</span>
+          <span class="icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-toggle-knob">
+            <span class="knob-moon" aria-hidden="true">☾</span>
+            <span class="knob-sun" aria-hidden="true">☀</span>
+          </span>
+        </span>
       </button>
-      <div
-        class="hamburger"
-        id="hamburger"
-        onclick="toggleMenu()"
-        role="button"
-        tabindex="0"
-        aria-label="Toggle menu"
-      >
+        <div
+          class="hamburger"
+          id="hamburger"
+          onclick="toggleMenu()"
+          role="button"
+          tabindex="0"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
         <span></span>
         <span></span>
         <span></span>
@@ -86,7 +95,7 @@
           <a href="#contact" class="btn btn-primary">Get In Touch</a>
           <a href="#projects" class="btn btn-outline">View Projects</a>
           <a
-            href="Chinmay Betageri FS.pdf"
+            href="Chinmay Betageri.pdf"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline"
@@ -241,11 +250,19 @@
 
     <section id="skills">
       <div class="container">
-        <div class="section-header reveal">
+        <div
+          class="section-header reveal accordion-header"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="skills-body"
+        >
           <span class="section-num">02</span>
           <h2 class="section-title">Tech Stack</h2>
           <div class="section-line"></div>
+          <span class="accordion-icon" aria-hidden="true"></span>
         </div>
+        <div class="collapsible-body" id="skills-body">
         <div class="skills-grid">
           <div class="skill-card reveal">
             <div class="skill-card-title">Programming</div>
@@ -271,13 +288,18 @@
               <span class="skill-tag">Node.js</span>
               <span class="skill-tag">Supabase</span>
               <span class="skill-tag">REST APIs</span>
+              <span class="skill-tag">JWT Auhtentication</span>
+              <span class="skill-tag">ZOD</span>
             </div>
           </div>
           <div class="skill-card reveal">
             <div class="skill-card-title">Databases</div>
             <div class="skill-tags">
               <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Mongooose</span>
               <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Neon Db</span>
+              <span class="skill-tag">Drizzle ORM</span>
             </div>
           </div>
           <div class="skill-card reveal">
@@ -286,14 +308,16 @@
               <span class="skill-tag">Git</span>
               <span class="skill-tag">GitHub</span>
               <span class="skill-tag">VS Code</span>
+              <span class="skill-tag">POstman</span>
             </div>
           </div>
           <div class="skill-card reveal">
             <div class="skill-card-title">AI Tools</div>
             <div class="skill-tags">
               <span class="skill-tag">Claude</span>
-              <span class="skill-tag">OpenAI Codex</span>
+              <span class="skill-tag">Kilo Code</span>
               <span class="skill-tag">Opencode</span>
+              <span class="skill-tag">pi code</span>
             </div>
           </div>
           <div class="skill-card reveal">
@@ -301,20 +325,31 @@
             <div class="skill-tags">
               <span class="skill-tag">DSA</span>
               <span class="skill-tag">OOPs</span>
-              <span class="skill-tag">System Design</span>
+              <span class="skill-tag">Computer Netowrks</span>
+              <span class="skill-tag">Agile</span>
+              <span class="skill-tag">Responsive Design</span>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <div class="section-header reveal">
+        <div
+          class="section-header reveal accordion-header"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="projects-body"
+        >
           <span class="section-num">04</span>
           <h2 class="section-title">Projects</h2>
           <div class="section-line"></div>
+          <span class="accordion-icon" aria-hidden="true"></span>
         </div>
+        <div class="collapsible-body" id="projects-body">
         <div class="projects-grid">
           <div class="project-card reveal">
             <div class="project-head">
@@ -392,19 +427,28 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <section id="experience">
       <div class="container">
-        <div class="section-header reveal">
+        <div
+          class="section-header reveal accordion-header"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="experience-body"
+        >
           <span class="section-num">03</span>
           <h2 class="section-title">Experience</h2>
           <div class="section-line"></div>
+          <span class="accordion-icon" aria-hidden="true"></span>
         </div>
+        <div class="collapsible-body" id="experience-body">
         <div class="exp-card reveal">
           <div class="exp-row">
             <div class="exp-main">
-              <div class="exp-role">Data Annotator</div>
+              <div class="exp-role">Trainee Engineer Intern</div>
               <div class="exp-company">ASPL Arctictern Pvt Ltd</div>
             </div>
             <span class="exp-date">Jan 2026 — May 2026</span>
@@ -433,15 +477,24 @@
           </ul>
         </div>
       </div>
+      </div>
     </section>
 
     <section id="education">
       <div class="container">
-        <div class="section-header reveal">
+        <div
+          class="section-header reveal accordion-header"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="education-body"
+        >
           <span class="section-num">05</span>
           <h2 class="section-title">Education</h2>
           <div class="section-line"></div>
+          <span class="accordion-icon" aria-hidden="true"></span>
         </div>
+        <div class="collapsible-body" id="education-body">
         <div class="edu-list">
           <div class="edu-row reveal">
             <span class="edu-date">2023 — 2026</span>
@@ -478,15 +531,24 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <section id="certifications">
       <div class="container">
-        <div class="section-header reveal">
+        <div
+          class="section-header reveal accordion-header"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="certifications-body"
+        >
           <span class="section-num">06</span>
           <h2 class="section-title">Certifications</h2>
           <div class="section-line"></div>
+          <span class="accordion-icon" aria-hidden="true"></span>
         </div>
+        <div class="collapsible-body" id="certifications-body">
         <div class="cert-list">
           <div class="cert-row reveal">
             <button
@@ -568,6 +630,7 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <section id="contact">
@@ -648,7 +711,7 @@
               >Get In Touch</a
             >
             <a
-              href="Chinmay Betageri FS.pdf"
+              href="Chinmay Betageri.pdf"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-outline"

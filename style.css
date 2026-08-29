@@ -27,6 +27,8 @@
   --font: "Inter", -apple-system, system-ui, sans-serif;
   --container: 1280px;
   --nav-h: 64px;
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-size: 40px;
 }
 
 :root[data-theme="light"] {
@@ -40,6 +42,7 @@
   --nav-bg: rgba(255, 255, 255, 0.85);
   --outline-border: rgba(24, 24, 24, 0.5);
   --outline-hover-bg: rgba(24, 24, 24, 0.06);
+  --grid-line: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -50,6 +53,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -58,6 +62,38 @@ body {
   color: var(--ink);
   line-height: 1.5;
   overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='180'%20height='180'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='0.8'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='100%25'%20height='100%25'%20filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
+.accordion-icon {
+  display: none;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -339,39 +375,87 @@ html.js body.ready .hero-meta {
   transition: 0.3s;
 }
 
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-right: var(--s-xs);
-  background: transparent;
-  border: 1px solid var(--hairline);
-  border-radius: 0;
-  color: var(--ink);
-  font-size: 15px;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease;
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.theme-toggle:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: var(--s-xs);
+  width: 56px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 56px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--canvas-elevated);
+  border: 1px solid var(--hairline);
+}
+
+.theme-toggle .icon-moon,
+.theme-toggle .icon-sun {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.theme-toggle .icon-moon {
+  left: 9px;
 }
 
 .theme-toggle .icon-sun {
+  right: 9px;
+}
+
+.theme-toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle-knob .knob-sun {
   display: none;
 }
 
-:root[data-theme="light"] .theme-toggle .icon-moon {
+:root[data-theme="light"] .theme-toggle-knob {
+  transform: translateX(28px);
+}
+
+:root[data-theme="light"] .theme-toggle-knob .knob-moon {
   display: none;
 }
 
-:root[data-theme="light"] .theme-toggle .icon-sun {
+:root[data-theme="light"] .theme-toggle-knob .knob-sun {
   display: inline;
 }
 
@@ -385,14 +469,20 @@ html.js body.ready .hero-meta {
 }
 
 .hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-img {
+      object-position: 55% center;
+    }
+  }
 
 .hero-overlay {
   position: absolute;
@@ -1368,12 +1458,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+  
+
   .nav {
     padding: 0 1.5rem;
   }
 
   .nav-links {
-    display: none;
     position: absolute;
     top: var(--nav-h);
     left: 0;
@@ -1383,10 +1474,94 @@ footer {
     padding: var(--s-sm) 1.5rem;
     gap: var(--s-sm);
     border-bottom: 1px solid var(--hairline);
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s;
   }
 
   .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .section-header.accordion-header {
+    cursor: pointer;
+    flex-wrap: nowrap;
+  }
+
+  .accordion-header .section-line {
+    display: none;
+  }
+
+  .accordion-icon {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+  }
+
+  .accordion-icon::before,
+  .accordion-icon::after {
+    content: "";
+    position: absolute;
+    background: var(--ink);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .accordion-icon::before {
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1.5px;
+    transform: translateY(-50%);
+  }
+
+  .accordion-icon::after {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1.5px;
+    transform: translateX(-50%);
+  }
+
+  .accordion-header[aria-expanded="true"] .accordion-icon::after {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  .collapsible-body {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      max-height 0.25s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s;
+  }
+
+  .accordion-header[aria-expanded="true"] + .collapsible-body {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  :root {
+    --grid-size: 28px;
   }
 
   .hamburger {
@@ -1397,8 +1572,20 @@ footer {
     display: none;
   }
 
+  .stats-band {
+    display: none;
+  }
+
   section {
-    padding: var(--s-xl) 1.5rem;
+    padding: var(--s-xs) 1.5rem;
+  }
+
+  .section-header {
+    margin-bottom: var(--s-md);
+  }
+
+  .accordion-header[aria-expanded="false"] {
+    margin-bottom: 0;
   }
 
   .about-grid,

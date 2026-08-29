@@ -9,12 +9,13 @@ function setTheme(theme) {
   document.documentElement.dataset.theme = theme;
   localStorage.setItem("theme", theme);
   themeToggle.setAttribute(
-    "aria-label",
-    theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
+    "aria-checked",
+    theme === "light" ? "true" : "false",
   );
 }
 
 if (themeToggle) {
+  setTheme(document.documentElement.dataset.theme);
   themeToggle.addEventListener("click", () => {
     const next =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
@@ -22,7 +23,9 @@ if (themeToggle) {
   });
 }
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
 const intro = document.getElementById("introOverlay");
 
 if (intro && !reduceMotion) {
@@ -47,13 +50,68 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
+const navLinks = document.getElementById("navLinks");
+const hamburger = document.getElementById("hamburger");
+
+function closeMenu() {
+  navLinks.classList.remove("active");
+  hamburger.classList.remove("active");
+  hamburger.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+}
+
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
+  const open = navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active", open);
+  hamburger.setAttribute("aria-expanded", String(open));
+  document.body.classList.toggle("menu-open", open);
 }
 
 document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    document.getElementById("navLinks").classList.remove("active");
+  link.addEventListener("click", closeMenu);
+});
+
+document.addEventListener("click", (e) => {
+  if (navLinks.classList.contains("active") && !nav.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});
+
+function setAccordion(header, expand) {
+  if (!window.matchMedia("(max-width: 768px)").matches) return;
+  const body = document.getElementById(header.getAttribute("aria-controls"));
+  if (!body) return;
+  header.setAttribute("aria-expanded", String(expand));
+  body.style.maxHeight = expand ? body.scrollHeight + "px" : "0px";
+}
+
+document.querySelectorAll(".accordion-header").forEach((header) => {
+  const toggle = () => {
+    setAccordion(header, header.getAttribute("aria-expanded") !== "true");
+  };
+  header.addEventListener("click", toggle);
+  header.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggle();
+    }
+  });
+});
+
+window.addEventListener("resize", () => {
+  const mobile = window.matchMedia("(max-width: 768px)").matches;
+  document.querySelectorAll(".accordion-header").forEach((header) => {
+    const body = document.getElementById(header.getAttribute("aria-controls"));
+    if (!body) return;
+    if (!mobile) {
+      body.style.maxHeight = "";
+    } else if (header.getAttribute("aria-expanded") === "true") {
+      body.style.maxHeight = body.scrollHeight + "px";
+    }
   });
 });
 
@@ -128,8 +186,21 @@ document.addEventListener("keydown", (e) => {
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key === "r" || e.key === "R") {
     const a = document.createElement("a");
-    a.href = "Chinmay Betageri FS.pdf";
+    a.href = "Chinmay Betageri.pdf";
     a.download = "Chinmay Betageri FS.pdf";
     a.click();
   }
 });
+
+const heroResume = document.querySelector('.hero-cta a[href="Chinmay Betageri.pdf"]');
+if (heroResume) {
+  heroResume.addEventListener("click", (e) => {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      e.preventDefault();
+      const a = document.createElement("a");
+      a.href = "Chinmay Betageri.pdf";
+      a.download = "Chinmay Betageri FS.pdf";
+      a.click();
+    }
+  });
+}
