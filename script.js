@@ -91,7 +91,11 @@ function setAccordion(header, expand) {
 
 document.querySelectorAll(".accordion-header").forEach((header) => {
   const toggle = () => {
-    setAccordion(header, header.getAttribute("aria-expanded") !== "true");
+    const willExpand = header.getAttribute("aria-expanded") !== "true";
+    document.querySelectorAll(".accordion-header").forEach((h) => {
+      if (h !== header) setAccordion(h, false);
+    });
+    setAccordion(header, willExpand);
   };
   header.addEventListener("click", toggle);
   header.addEventListener("keydown", (e) => {
@@ -191,6 +195,29 @@ document.addEventListener("keydown", (e) => {
     a.click();
   }
 });
+
+// hero photo cursor tilt — rAF throttled
+const heroVisual = document.querySelector(".hero-visual");
+const heroPhoto = document.querySelector(".hero-photo");
+if (heroVisual && heroPhoto && !reduceMotion && window.matchMedia("(hover: hover)").matches) {
+  let raf = 0;
+  let mx = 0, my = 0;
+  heroVisual.addEventListener("mousemove", (e) => {
+    const r = heroVisual.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width - 0.5;
+    my = (e.clientY - r.top) / r.height - 0.5;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      heroPhoto.style.transform = `perspective(900px) rotateY(${mx * 7}deg) rotateX(${-my * 7}deg) scale(1.02)`;
+    });
+  });
+  heroVisual.addEventListener("mouseleave", () => {
+    cancelAnimationFrame(raf);
+    raf = 0;
+    heroPhoto.style.transform = "";
+  });
+}
 
 const heroResume = document.querySelector('.hero-cta a[href="Chinmay Betageri.pdf"]');
 if (heroResume) {
