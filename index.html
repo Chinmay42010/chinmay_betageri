@@ -1,775 +1,897 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Chinmay Betageri — Full-Stack Developer crafting scalable web applications with JavaScript, React, Node.js & AI-powered solutions."
-    />
-    <title>Chinmay Betageri | Full-Stack Developer</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script>
-      (function () {
-        var stored = localStorage.getItem("theme");
-        var theme =
-          stored ||
-          (window.matchMedia("(prefers-color-scheme: light)").matches
-            ? "light"
-            : "dark");
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
-  </head>
-  <body>
-    <div class="intro-overlay" id="introOverlay" aria-hidden="true">
-      <div class="intro-inner">
-        <div class="intro-monogram">CB<span class="intro-dot"></span></div>
-        <div class="intro-rule"></div>
-        <div class="intro-tagline">Full-Stack Developer</div>
-      </div>
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Chinmay Betageri — Full-Stack Developer crafting scalable web applications with JavaScript, React, Node.js & AI-powered solutions."
+        />
+        <title>Chinmay Betageri | Full-Stack Developer</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            (function () {
+                var stored = localStorage.getItem("theme");
+                var theme =
+                    stored ||
+                    (window.matchMedia("(prefers-color-scheme: light)").matches
+                        ? "light"
+                        : "dark");
+                document.documentElement.dataset.theme = theme;
+            })();
+        </script>
+    </head>
+    <body>
+        <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+            <div class="intro-inner">
+                <div class="intro-monogram">
+                    CB<span class="intro-dot"></span>
+                </div>
+                <div class="intro-rule"></div>
+                <div class="intro-tagline">Full-Stack Developer</div>
+            </div>
+        </div>
 
-    <nav class="nav" id="nav">
-      <a href="#hero" class="logo">CB<span class="logo-mark">.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button
-        id="themeToggle"
-        class="theme-toggle"
-        type="button"
-        role="switch"
-        aria-checked="false"
-        aria-label="Toggle theme"
-      >
-        <span class="theme-toggle-track">
-          <span class="icon-moon" aria-hidden="true">☾</span>
-          <span class="icon-sun" aria-hidden="true">☀</span>
-          <span class="theme-toggle-knob">
-            <span class="knob-moon" aria-hidden="true">☾</span>
-            <span class="knob-sun" aria-hidden="true">☀</span>
-          </span>
-        </span>
-      </button>
-        <div
-          class="hamburger"
-          id="hamburger"
-          onclick="toggleMenu()"
-          role="button"
-          tabindex="0"
-          aria-label="Toggle menu"
-          aria-expanded="false"
-        >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-
-    <section class="hero" id="hero">
-      <div class="hero-inner">
-        <div class="hero-content">
-          <span class="hero-label">Full-Stack Developer</span>
-          <h1 class="hero-title">
-            CHINMAY<br />BETAGERI<span class="accent-dot"></span>
-          </h1>
-          <p class="hero-sub">
-            Crafting scalable web applications with JavaScript, React, Node.js
-            &amp; AI-powered solutions.
-          </p>
-          <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="#projects" class="btn btn-outline">View Projects</a>
-            <a
-              href="Chinmay Betageri.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline"
-              >Resume</a
-            >
-          </div>
-          <div class="hero-details">
-            <span class="hero-detail"><span class="hero-detail-label">Location</span> Hubballi, Karnataka</span>
-            <span class="hero-detail-dot" aria-hidden="true">·</span>
-            <span class="hero-detail"><span class="hero-detail-label">Status</span> Open to work</span>
-            <span class="hero-detail-dot" aria-hidden="true">·</span>
-            <span class="hero-detail press"><span class="hero-detail-label">Press R</span> to download Resume</span>
-          </div>
-        </div>
-        <div class="hero-visual" tabindex="0">
-          <img src="hero-2.jpg" alt="Portrait of Chinmay Betageri" class="hero-photo" fetchpriority="high" />
-        </div>
-      </div>
-      <a href="#about" class="hero-scroll" aria-label="Scroll down">
-        <span>Scroll down</span>
-        <span class="hero-scroll-arrow" aria-hidden="true">↓</span>
-      </a>
-    </section>
-
-    <div class="livery-band" aria-hidden="true">
-      <div class="livery-track">
-        <div class="livery-group">
-          <span>JavaScript</span>
-          <span class="livery-dot">●</span>
-          <span>React.js</span>
-          <span class="livery-dot">●</span>
-          <span>Express.js</span>
-          <span class="livery-dot">●</span>
-          <span>Node.js</span>
-          <span class="livery-dot">●</span>
-          <span>React</span>
-          <span class="livery-dot">●</span>
-          <span>MongoDB</span>
-          <span class="livery-dot">●</span>
-          <span>Python</span>
-          <span class="livery-dot">●</span>
-          <span>Tailwind CSS</span>
-          <span class="livery-dot">●</span>
-          <span>REST APIs</span>
-          <span class="livery-dot">●</span>
-          <span>C++</span>
-          <span class="livery-dot">●</span>
-          <span>Supabase</span>
-          <span class="livery-dot">●</span>
-        </div>
-        <div class="livery-group">
-          <span>JavaScript</span>
-          <span class="livery-dot">●</span>
-          <span>Node.js</span>
-          <span class="livery-dot">●</span>
-          <span>Next.js</span>
-          <span class="livery-dot">●</span>
-          <span>React.js</span>
-          <span class="livery-dot">●</span>
-          <span>Mongo DB</span>
-          <span class="livery-dot">●</span>
-          <span>Tailwind CSS</span>
-          <span class="livery-dot">●</span>
-          <span>REST APIs</span>
-          <span class="livery-dot">●</span>
-          <span>C++</span>
-          <span class="livery-dot">●</span>
-          <span>Supabase</span>
-          <span class="livery-dot">●</span>
-          <span>Python</span>
-          <span class="livery-dot">●</span>
-        </div>
-      </div>
-    </div>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-num">01</span>
-          <h2 class="section-title">About</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p>
-              Computer Science Engineering graduate with a strong interest in
-              <span class="hl">full-stack web development</span> and
-              <span class="hl">AI-powered applications</span>.
-            </p>
-            <p>
-              Skilled in JavaScript, React, Node.js, HTML, CSS, and Tailwind
-              CSS, with a solid foundation in building responsive web
-              applications and RESTful APIs.
-            </p>
-            <p>
-              Passionate about developing scalable, high-quality web
-              applications, continuously learning modern technologies, and
-              leveraging AI tools to build real-world solutions while growing as
-              a Full-Stack Developer.
-            </p>
-          </div>
-          <div class="about-info reveal">
-            <div class="info-row">
-              <span class="info-label">Name</span>
-              <span class="info-value">Chinmay Betageri</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Email</span>
-              <span class="info-value">kbchinmay004@gmail.com</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Phone</span>
-              <span class="info-value">+91 78488 95581</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Location</span>
-              <span class="info-value">Hubballi, Karnataka</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Degree</span>
-              <span class="info-value">B.E. AI &amp; ML</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">Languages</span>
-              <span class="info-value">English, Kannada, Hindi</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="stats-band">
-      <div class="container stats-inner">
-        <div class="stat reveal">
-          <div class="stat-value">02</div>
-          <div class="stat-label">Projects</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-value">01</div>
-          <div class="stat-label">Experience</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-value">03</div>
-          <div class="stat-label">Languages</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-value">03</div>
-          <div class="stat-label">Certifications</div>
-        </div>
-      </div>
-    </div>
-
-    <section id="skills">
-      <div class="container">
-        <div
-          class="section-header reveal accordion-header"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="skills-body"
-        >
-          <span class="section-num">02</span>
-          <h2 class="section-title">Tech Stack</h2>
-          <div class="section-line"></div>
-          <span class="accordion-icon" aria-hidden="true"></span>
-        </div>
-        <div class="collapsible-body" id="skills-body">
-        <div class="skills-grid">
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Programming</div>
-            <div class="skill-tags">
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">Python</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Frontend</div>
-            <div class="skill-tags">
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Next.js</span>
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">Tailwind CSS</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Backend &amp; APIs</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Supabase</span>
-              <span class="skill-tag">REST APIs</span>
-              <span class="skill-tag">JWT Authentication</span>
-              <span class="skill-tag">Zod</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Databases</div>
-            <div class="skill-tags">
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">Mongoose</span>
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">Neon DB</span>
-              <span class="skill-tag">Drizzle ORM</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Developer Tools</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">GitHub</span>
-              <span class="skill-tag">VS Code</span>
-              <span class="skill-tag">Postman</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">AI Tools</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Claude</span>
-              <span class="skill-tag">Kilo Code</span>
-              <span class="skill-tag">Opencode</span>
-              <span class="skill-tag">pi code</span>
-            </div>
-          </div>
-          <div class="skill-card reveal">
-            <div class="skill-card-title">Core Concepts</div>
-            <div class="skill-tags">
-              <span class="skill-tag">DSA</span>
-              <span class="skill-tag">OOPs</span>
-              <span class="skill-tag">Computer Networks</span>
-              <span class="skill-tag">Agile</span>
-              <span class="skill-tag">Responsive Design</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div
-          class="section-header reveal accordion-header"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="projects-body"
-        >
-          <span class="section-num">04</span>
-          <h2 class="section-title">Projects</h2>
-          <div class="section-line"></div>
-          <span class="accordion-icon" aria-hidden="true"></span>
-        </div>
-        <div class="collapsible-body" id="projects-body">
-        <div class="projects-grid">
-          <div class="project-card reveal">
-            <div class="project-head">
-              <span class="project-num">01</span>
-              <h3 class="project-title">EXPENSE TRACKER & GROUP SPLIT APP</h3>
-            </div>
-            <p class="project-desc">
-              Built a full-stack expense tracking app using React and Node.js
-              with Supabase authentication and MongoDB Atlas. Implements
-              category-based expense tracking, group bill-splitting, and a
-              custom settlement algorithm that calculates net balances and
-              generates minimal payment transactions between group members.
-              Features include spending visualization with Recharts and a custom
-              dark UI design system.
-            </p>
-            <div class="project-tech">
-              <span>REACT</span>
-              <span>NODE.JS</span>
-              <span>EXPRESS</span>
-              <span>MONGODB</span>
-              <span>SUPABASE</span>
-              <span>RECHARTS</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/Chinmay42010/expense-tracker"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                >GitHub Repo <span class="arrow">→</span></a
-              >
-              <a
-                href="https://expense-tracker-xi-hazel-90.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                >Live URL <span class="arrow">→</span></a
-              >
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <div class="project-head">
-              <span class="project-num">02</span>
-              <h3 class="project-title">.gitignore Hub</h3>
-            </div>
-            <p class="project-desc">
-              A simple, fast, and responsive .gitignore generator that helps
-              developers create .gitignore files by selecting the technologies
-              they use. Built with HTML, CSS, and JavaScript, the project
-              combines multiple templates into a single .gitignore while
-              automatically removing duplicate entries.
-            </p>
-            <div class="project-tech">
-              <span>JavaScript</span>
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>Vercel</span>
-            </div>
-            <div class="project-links">
-              <a
-                href="https://github.com/Chinmay42010/gitignore-hub"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                >GitHub Repo <span class="arrow">→</span></a
-              >
-              <a
-                href="https://gitignore-generator-one.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-                >Live URL <span class="arrow">→</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <div
-          class="section-header reveal accordion-header"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="experience-body"
-        >
-          <span class="section-num">03</span>
-          <h2 class="section-title">Experience</h2>
-          <div class="section-line"></div>
-          <span class="accordion-icon" aria-hidden="true"></span>
-        </div>
-        <div class="collapsible-body" id="experience-body">
-        <div class="exp-card reveal">
-          <div class="exp-row">
-            <div class="exp-main">
-              <div class="exp-role">Trainee Engineer Intern</div>
-              <div class="exp-company">ASPL Arctictern Pvt Ltd</div>
-            </div>
-            <span class="exp-date">Jan 2026 — May 2026</span>
-          </div>
-          <ul class="exp-list">
-            <li>
-              Annotated multi-modal LiDAR point cloud and camera image datasets
-              over a 5 month internship for ADAS perception model training
-            </li>
-            <li>
-              Produced precise 3D bounding box annotations for pedestrians,
-              cyclists, pickup trucks, heavy trucks, and construction vehicles.
-            </li>
-            <li>
-              Delivered 25+ production-ready datasets with an average of 87%
-              annotation accuracy against QA benchmarks.
-            </li>
-            <li>
-              Performed annotation, validation, and QA using Understand.ai
-              (dSPACE) across large-scale point cloud frames.
-            </li>
-            <li>
-              Built hands-on expertise in 3D spatial data, LiDAR-image
-              correlation, and CV annotation workflows for autonomous systems.
-            </li>
-          </ul>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <div
-          class="section-header reveal accordion-header"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="education-body"
-        >
-          <span class="section-num">05</span>
-          <h2 class="section-title">Education</h2>
-          <div class="section-line"></div>
-          <span class="accordion-icon" aria-hidden="true"></span>
-        </div>
-        <div class="collapsible-body" id="education-body">
-        <div class="edu-list">
-          <div class="edu-row reveal">
-            <span class="edu-date">2023 — 2026</span>
-            <div class="edu-main">
-              <div class="edu-degree">
-                B.E. Artificial Intelligence &amp; Machine Learning
-              </div>
-              <div class="edu-school">
-                KLS Vishwanathrao Deshpande Institute of Technology, Haliyal,
-                Uttarkannada, Karnataka
-              </div>
-            </div>
-            <span class="edu-meta">GPA 7.5</span>
-          </div>
-          <div class="edu-row reveal">
-            <span class="edu-date">2020 — 2023</span>
-            <div class="edu-main">
-              <div class="edu-degree">Diploma Computer Science</div>
-              <div class="edu-school">
-                Government Polytechnic, Hubballi, Karnataka
-              </div>
-            </div>
-            <span class="edu-meta">GPA 7.0</span>
-          </div>
-          <div class="edu-row reveal">
-            <span class="edu-date">2019 — 2020</span>
-            <div class="edu-main">
-              <div class="edu-degree">SSLC</div>
-              <div class="edu-school">
-                KLE M R Sakhare State School, Vidyanagar, Hubballi, Karnataka
-              </div>
-            </div>
-            <span class="edu-meta">80.16%</span>
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-
-    <section id="certifications">
-      <div class="container">
-        <div
-          class="section-header reveal accordion-header"
-          role="button"
-          tabindex="0"
-          aria-expanded="false"
-          aria-controls="certifications-body"
-        >
-          <span class="section-num">06</span>
-          <h2 class="section-title">Certifications</h2>
-          <div class="section-line"></div>
-          <span class="accordion-icon" aria-hidden="true"></span>
-        </div>
-        <div class="collapsible-body" id="certifications-body">
-        <div class="cert-list">
-          <div class="cert-row reveal">
+        <nav class="nav" id="nav">
+            <a href="#hero" class="logo">CB<span class="logo-mark">.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
             <button
-              type="button"
-              class="cert-thumb"
-              data-cert-img="certs/web-dev-fundamentals.png"
-              data-cert-url="https://drive.google.com/file/d/1cXMRvGCDlJHlXp1-N_0k92A2yFgM3DFW/view?usp=sharing"
-              aria-label="view Web Development Fundamentals Certificate"
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                role="switch"
+                aria-checked="false"
+                aria-label="Toggle theme"
             >
-              <img
-                src="certs/web-dev-fundamentals.png"
-                alt="view Web Development Fundamentals Certificate"
-                loading="lazy"
-              />
+                <span class="theme-toggle-track">
+                    <span class="icon-moon" aria-hidden="true">☾</span>
+                    <span class="icon-sun" aria-hidden="true">☀</span>
+                    <span class="theme-toggle-knob">
+                        <span class="knob-moon" aria-hidden="true">☾</span>
+                        <span class="knob-sun" aria-hidden="true">☀</span>
+                    </span>
+                </span>
             </button>
-            <div class="cert-main">
-              <div class="cert-name">Web Development Fundamentals</div>
-              <div class="cert-issuer">IBM SkillsBuild</div>
+            <div
+                class="hamburger"
+                id="hamburger"
+                onclick="toggleMenu()"
+                role="button"
+                tabindex="0"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <a
-              href="https://drive.google.com/file/d/1cXMRvGCDlJHlXp1-N_0k92A2yFgM3DFW/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-view"
-              >View <span class="arrow">→</span></a
-            >
-          </div>
-          <div class="cert-row reveal">
-            <button
-              type="button"
-              class="cert-thumb"
-              data-cert-img="certs/claude-101.png"
-              data-cert-url="https://drive.google.com/file/d/1JBrXMQAm2_6_cLTRX1d2qNEcf_5-z9NU/view?usp=sharing"
-              aria-label="View Claude 101 Certificate"
-            >
-              <img
-                src="certs/claude-101.png"
-                alt="Claude 101 - Anthropic"
-                loading="lazy"
-              />
-            </button>
-            <div class="cert-main">
-              <div class="cert-name">Claude 101 by Anthropic</div>
-              <div class="cert-issuer">Anthropic Skilljar</div>
-            </div>
-            <a
-              href="https://drive.google.com/file/d/1JBrXMQAm2_6_cLTRX1d2qNEcf_5-z9NU/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-view"
-              >View <span class="arrow">→</span></a
-            >
-          </div>
-          <div class="cert-row reveal">
-            <button
-              type="button"
-              class="cert-thumb"
-              data-cert-img="certs/mongodb-rag.png"
-              data-cert-url="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
-              aria-label="View Building RAG Apps Using MongoDB certificate"
-            >
-              <img
-                src="certs/mongodb-rag.png"
-                alt="Building RAG Apps Using MongoDB certificate"
-                loading="lazy"
-              />
-            </button>
-            <div class="cert-main">
-              <div class="cert-name">Building RAG Apps Using MongoDB</div>
-              <div class="cert-issuer">MongoDB University</div>
-            </div>
-            <a
-              href="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="cert-view"
-              >View <span class="arrow">→</span></a
-            >
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
+        </nav>
 
-    <section id="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-num">07</span>
-          <h2 class="section-title">Get In Touch</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-info reveal">
-            <a href="mailto:kbchinmay004@gmail.com" class="contact-item">
-              <span class="contact-icon">@</span>
-              <span>
-                <span class="contact-label">Email</span>
-                <span class="contact-value">kbchinmay004@gmail.com</span>
-              </span>
+        <section class="hero" id="hero">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-label">Full-Stack Developer</span>
+                    <h1 class="hero-title">
+                        CHINMAY<br />BETAGERI<span class="accent-dot"></span>
+                    </h1>
+                    <p class="hero-sub">
+                        Crafting scalable web applications with JavaScript,
+                        React, Node.js &amp; AI-powered solutions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary"
+                            >Get In Touch</a
+                        >
+                        <a href="#projects" class="btn btn-outline"
+                            >View Projects</a
+                        >
+                        <a
+                            href="Chinmay Betageri.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline"
+                            >Resume</a
+                        >
+                    </div>
+                    <div class="hero-details">
+                        <span class="hero-detail"
+                            ><span class="hero-detail-label">Location</span>
+                            Hubballi, Karnataka</span
+                        >
+                        <span class="hero-detail-dot" aria-hidden="true"
+                            >·</span
+                        >
+                        <span class="hero-detail"
+                            ><span class="hero-detail-label">Status</span> Open
+                            to work</span
+                        >
+                        <span class="hero-detail-dot" aria-hidden="true"
+                            >·</span
+                        >
+                        <span class="hero-detail press"
+                            ><span class="hero-detail-label">Press R</span> to
+                            download Resume</span
+                        >
+                    </div>
+                </div>
+                <div class="hero-visual" tabindex="0">
+                    <img
+                        src="hero-2.jpg"
+                        alt="Portrait of Chinmay Betageri"
+                        class="hero-photo"
+                        fetchpriority="high"
+                    />
+                </div>
+            </div>
+            <a href="#about" class="hero-scroll" aria-label="Scroll down">
+                <span>Scroll down</span>
+                <span class="hero-scroll-arrow" aria-hidden="true">↓</span>
             </a>
-            <a href="tel:+917848895581" class="contact-item">
-              <span class="contact-icon">#</span>
-              <span>
-                <span class="contact-label">Phone</span>
-                <span class="contact-value">+91 78488 95581</span>
-              </span>
-            </a>
-            <div class="contact-item">
-              <span class="contact-icon">◉</span>
-              <span>
-                <span class="contact-label">Location</span>
-                <span class="contact-value">Hubballi, Karnataka, India</span>
-              </span>
+        </section>
+
+        <div class="livery-band" aria-hidden="true">
+            <div class="livery-track">
+                <div class="livery-group">
+                    <span>JavaScript</span>
+                    <span class="livery-dot">●</span>
+                    <span>React.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>Express.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>Node.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>React</span>
+                    <span class="livery-dot">●</span>
+                    <span>MongoDB</span>
+                    <span class="livery-dot">●</span>
+                    <span>Python</span>
+                    <span class="livery-dot">●</span>
+                    <span>Tailwind CSS</span>
+                    <span class="livery-dot">●</span>
+                    <span>REST APIs</span>
+                    <span class="livery-dot">●</span>
+                    <span>C++</span>
+                    <span class="livery-dot">●</span>
+                    <span>Supabase</span>
+                    <span class="livery-dot">●</span>
+                </div>
+                <div class="livery-group">
+                    <span>JavaScript</span>
+                    <span class="livery-dot">●</span>
+                    <span>Node.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>Next.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>React.js</span>
+                    <span class="livery-dot">●</span>
+                    <span>Mongo DB</span>
+                    <span class="livery-dot">●</span>
+                    <span>Tailwind CSS</span>
+                    <span class="livery-dot">●</span>
+                    <span>REST APIs</span>
+                    <span class="livery-dot">●</span>
+                    <span>C++</span>
+                    <span class="livery-dot">●</span>
+                    <span>Supabase</span>
+                    <span class="livery-dot">●</span>
+                    <span>Python</span>
+                    <span class="livery-dot">●</span>
+                </div>
             </div>
-          </div>
-          <div class="socials reveal">
-            <a
-              href="https://www.linkedin.com/in/chinmay-betageri-60a4b924b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-link"
-              ><span>LinkedIn</span><span class="arrow">→</span></a
-            >
-            <a
-              href="https://github.com/Chinmay42010"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-link"
-              ><span>GitHub</span><span class="arrow">→</span></a
-            >
-            <a
-              href="https://leetcode.com/u/dtqNk5Nm4c/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-link"
-              ><span>LeetCode</span><span class="arrow">→</span></a
-            >
-          </div>
         </div>
-      </div>
-    </section>
 
-    <footer>
-      <div class="collab-card">
-        <div class="collab-main">
-          <div class="collab-name">
-            CHINMAY<span class="collab-dot">.</span>
-          </div>
-          <span class="collab-eyebrow">Let's Build Together</span>
-          <h2 class="collab-title">
-            Open to full-time opportunities and meaningful collaborations, eager
-            to turn ideas into production grade software.
-          </h2>
-        </div>
-        <div class="collab-side">
-          <div class="collab-cta">
-            <a
-              href="https://www.linkedin.com/in/chinmay-betageri/"
-              class="btn btn-primary"
-              >Get In Touch</a
-            >
-            <a
-              href="Chinmay Betageri.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline"
-              >Resume</a
-            >
-          </div>
-          <div class="collab-socials">
-            <a
-              href="https://www.linkedin.com/in/chinmay-betageri-60a4b924b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="collab-social"
-              >LinkedIn</a
-            >
-            <a
-              href="https://github.com/Chinmay42010"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="collab-social"
-              >GitHub</a
-            >
-            <a
-              href="https://leetcode.com/u/dtqNk5Nm4c/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="collab-social"
-              >LeetCode</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="collab-copy">
-        © 2026 Design &amp; Developed by Chinmay Betageri
-      </div>
-    </footer>
+        <section id="about">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title">About</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            Computer Science Engineering graduate with a strong
+                            interest in
+                            <span class="hl">full-stack web development</span>
+                            and <span class="hl">AI-powered applications</span>.
+                        </p>
+                        <p>
+                            Skilled in JavaScript, React, Node.js, HTML, CSS,
+                            and Tailwind CSS, with a solid foundation in
+                            building responsive web applications and RESTful
+                            APIs.
+                        </p>
+                        <p>
+                            Passionate about developing scalable, high-quality
+                            web applications, continuously learning modern
+                            technologies, and leveraging AI tools to build
+                            real-world solutions while growing as a Full-Stack
+                            Developer.
+                        </p>
+                    </div>
+                    <div class="about-info reveal">
+                        <div class="info-row">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">Chinmay Betageri</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email</span>
+                            <span class="info-value"
+                                >kbchinmay004@gmail.com</span
+                            >
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Phone</span>
+                            <span class="info-value">+91 78488 95581</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Hubballi, Karnataka</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Degree</span>
+                            <span class="info-value">B.E. AI &amp; ML</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Languages</span>
+                            <span class="info-value"
+                                >English, Kannada, Hindi</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div
-      id="lightbox"
-      class="lightbox"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Certificate preview"
-    >
-      <div class="lightbox-inner">
-        <img id="lightboxImg" class="lightbox-img" src="" alt="" />
-        <a
-          id="lightboxLink"
-          class="lightbox-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Open in Google Drive <span class="arrow">→</span></a
+        <div class="stats-band">
+            <div class="container stats-inner">
+                <div class="stat reveal">
+                    <div class="stat-value">02</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="stat-value">01</div>
+                    <div class="stat-label">Experience</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="stat-value">03</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat reveal">
+                    <div class="stat-value">03</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+            </div>
+        </div>
+
+        <section id="skills">
+            <div class="container">
+                <div
+                    class="section-header reveal accordion-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="skills-body"
+                >
+                    <span class="section-num">02</span>
+                    <h2 class="section-title">Tech Stack</h2>
+                    <div class="section-line"></div>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </div>
+                <div class="collapsible-body" id="skills-body">
+                    <div class="skills-grid">
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">Programming</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">Python</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">Frontend</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Next.js</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">
+                                Backend &amp; APIs
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Supabase</span>
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag"
+                                    >JWT Authentication</span
+                                >
+                                <span class="skill-tag">Zod</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">Databases</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Mongoose</span>
+                                <span class="skill-tag">SQL</span>
+                                <span class="skill-tag">Neon DB</span>
+                                <span class="skill-tag">Drizzle ORM</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">Developer Tools</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">GitHub</span>
+                                <span class="skill-tag">VS Code</span>
+                                <span class="skill-tag">Postman</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">AI Tools</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Claude</span>
+                                <span class="skill-tag">Kilo Code</span>
+                                <span class="skill-tag">Opencode</span>
+                                <span class="skill-tag">pi code</span>
+                            </div>
+                        </div>
+                        <div class="skill-card reveal">
+                            <div class="skill-card-title">Core Concepts</div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">DSA</span>
+                                <span class="skill-tag">OOPs</span>
+                                <span class="skill-tag">Computer Networks</span>
+                                <span class="skill-tag">Agile</span>
+                                <span class="skill-tag">Responsive Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div
+                    class="section-header reveal accordion-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="projects-body"
+                >
+                    <span class="section-num">04</span>
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-line"></div>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </div>
+                <div class="collapsible-body" id="projects-body">
+                    <div class="projects-grid">
+                        <div class="project-card reveal">
+                            <div class="project-head">
+                                <span class="project-num">01</span>
+                                <h3 class="project-title">
+                                    EXPENSE TRACKER & GROUP SPLIT APP
+                                </h3>
+                            </div>
+                            <p class="project-desc">
+                                Built a full-stack expense tracking app using
+                                React and Node.js with Supabase authentication
+                                and MongoDB Atlas. Implements category-based
+                                expense tracking, group bill-splitting, and a
+                                custom settlement algorithm that calculates net
+                                balances and generates minimal payment
+                                transactions between group members. Features
+                                include spending visualization with Recharts and
+                                a custom dark UI design system.
+                            </p>
+                            <div class="project-tech">
+                                <span>REACT</span>
+                                <span>NODE.JS</span>
+                                <span>EXPRESS</span>
+                                <span>MONGODB</span>
+                                <span>SUPABASE</span>
+                                <span>RECHARTS</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://github.com/Chinmay42010/expense-tracker"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >GitHub Repo <span class="arrow">→</span></a
+                                >
+                                <a
+                                    href="https://expense-tracker-xi-hazel-90.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >Live URL <span class="arrow">→</span></a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card reveal">
+                            <div class="project-head">
+                                <span class="project-num">02</span>
+                                <h3 class="project-title">
+                                    SPORTZ - A LIVE SPORTS DASHBOARD
+                                </h3>
+                            </div>
+                            <p class="project-desc">
+                                Built a real-time cricket score platform using
+                                WebSockets with per-match subscription rooms,
+                                change detection, heartbeat, and auto-reconnect.
+                                Implemented tiered polling across two
+                                rate-limited cricket APIs with quota guards,
+                                secured the stack with Zod, parameterized
+                                queries, restricted CORS, and Arcjet, and
+                                deployed on Vercel and Render.
+                            </p>
+                            <div class="project-tech">
+                                <span>NODE.JS</span>
+                                <span>EXPRESS</span>
+                                <span>POSTGRE SQL</span>
+                                <span>ARCJET</span>
+                                <span>DRIZZLE ORM</span>
+                                <span>REACT</span>
+                                <span>ZOD VALIDATION</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://github.com/Chinmay42010/sportz-websocketr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >GitHub Repo <span class="arrow">→</span></a
+                                >
+                                <a
+                                    href="https://sportz-frontend-iota.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >Live URL <span class="arrow">→</span></a
+                                >
+                            </div>
+                        </div>
+                        <div class="project-card reveal">
+                            <div class="project-head">
+                                <span class="project-num">03</span>
+                                <h3 class="project-title">.gitignore Hub</h3>
+                            </div>
+                            <p class="project-desc">
+                                A simple, fast, and responsive .gitignore
+                                generator that helps developers create
+                                .gitignore files by selecting the technologies
+                                they use. Built with HTML, CSS, and JavaScript,
+                                the project combines multiple templates into a
+                                single .gitignore while automatically removing
+                                duplicate entries.
+                            </p>
+                            <div class="project-tech">
+                                <span>JavaScript</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://github.com/Chinmay42010/gitignore-hub"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >GitHub Repo <span class="arrow">→</span></a
+                                >
+                                <a
+                                    href="https://gitignore-generator-one.vercel.app"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >Live URL <span class="arrow">→</span></a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <div
+                    class="section-header reveal accordion-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="experience-body"
+                >
+                    <span class="section-num">03</span>
+                    <h2 class="section-title">Experience</h2>
+                    <div class="section-line"></div>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </div>
+                <div class="collapsible-body" id="experience-body">
+                    <div class="exp-card reveal">
+                        <div class="exp-row">
+                            <div class="exp-main">
+                                <div class="exp-role">
+                                    Trainee Engineer Intern
+                                </div>
+                                <div class="exp-company">
+                                    ASPL Arctictern Pvt Ltd
+                                </div>
+                            </div>
+                            <span class="exp-date">Jan 2026 — May 2026</span>
+                        </div>
+                        <ul class="exp-list">
+                            <li>
+                                Annotated multi-modal LiDAR point cloud and
+                                camera image datasets over a 5 month internship
+                                for ADAS perception model training
+                            </li>
+                            <li>
+                                Produced precise 3D bounding box annotations for
+                                pedestrians, cyclists, pickup trucks, heavy
+                                trucks, and construction vehicles.
+                            </li>
+                            <li>
+                                Delivered 25+ production-ready datasets with an
+                                average of 87% annotation accuracy against QA
+                                benchmarks.
+                            </li>
+                            <li>
+                                Performed annotation, validation, and QA using
+                                Understand.ai (dSPACE) across large-scale point
+                                cloud frames.
+                            </li>
+                            <li>
+                                Built hands-on expertise in 3D spatial data,
+                                LiDAR-image correlation, and CV annotation
+                                workflows for autonomous systems.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="container">
+                <div
+                    class="section-header reveal accordion-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="education-body"
+                >
+                    <span class="section-num">05</span>
+                    <h2 class="section-title">Education</h2>
+                    <div class="section-line"></div>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </div>
+                <div class="collapsible-body" id="education-body">
+                    <div class="edu-list">
+                        <div class="edu-row reveal">
+                            <span class="edu-date">2023 — 2026</span>
+                            <div class="edu-main">
+                                <div class="edu-degree">
+                                    B.E. Artificial Intelligence &amp; Machine
+                                    Learning
+                                </div>
+                                <div class="edu-school">
+                                    KLS Vishwanathrao Deshpande Institute of
+                                    Technology, Haliyal, Uttarkannada, Karnataka
+                                </div>
+                            </div>
+                            <span class="edu-meta">GPA 7.5</span>
+                        </div>
+                        <div class="edu-row reveal">
+                            <span class="edu-date">2020 — 2023</span>
+                            <div class="edu-main">
+                                <div class="edu-degree">
+                                    Diploma Computer Science
+                                </div>
+                                <div class="edu-school">
+                                    Government Polytechnic, Hubballi, Karnataka
+                                </div>
+                            </div>
+                            <span class="edu-meta">GPA 7.0</span>
+                        </div>
+                        <div class="edu-row reveal">
+                            <span class="edu-date">2019 — 2020</span>
+                            <div class="edu-main">
+                                <div class="edu-degree">SSLC</div>
+                                <div class="edu-school">
+                                    KLE M R Sakhare State School, Vidyanagar,
+                                    Hubballi, Karnataka
+                                </div>
+                            </div>
+                            <span class="edu-meta">80.16%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <div class="container">
+                <div
+                    class="section-header reveal accordion-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="certifications-body"
+                >
+                    <span class="section-num">06</span>
+                    <h2 class="section-title">Certifications</h2>
+                    <div class="section-line"></div>
+                    <span class="accordion-icon" aria-hidden="true"></span>
+                </div>
+                <div class="collapsible-body" id="certifications-body">
+                    <div class="cert-list">
+                        <div class="cert-row reveal">
+                            <button
+                                type="button"
+                                class="cert-thumb"
+                                data-cert-img="certs/web-dev-fundamentals.png"
+                                data-cert-url="https://drive.google.com/file/d/1cXMRvGCDlJHlXp1-N_0k92A2yFgM3DFW/view?usp=sharing"
+                                aria-label="view Web Development Fundamentals Certificate"
+                            >
+                                <img
+                                    src="certs/web-dev-fundamentals.png"
+                                    alt="view Web Development Fundamentals Certificate"
+                                    loading="lazy"
+                                />
+                            </button>
+                            <div class="cert-main">
+                                <div class="cert-name">
+                                    Web Development Fundamentals
+                                </div>
+                                <div class="cert-issuer">IBM SkillsBuild</div>
+                            </div>
+                            <a
+                                href="https://drive.google.com/file/d/1cXMRvGCDlJHlXp1-N_0k92A2yFgM3DFW/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cert-view"
+                                >View <span class="arrow">→</span></a
+                            >
+                        </div>
+                        <div class="cert-row reveal">
+                            <button
+                                type="button"
+                                class="cert-thumb"
+                                data-cert-img="certs/claude-101.png"
+                                data-cert-url="https://drive.google.com/file/d/1JBrXMQAm2_6_cLTRX1d2qNEcf_5-z9NU/view?usp=sharing"
+                                aria-label="View Claude 101 Certificate"
+                            >
+                                <img
+                                    src="certs/claude-101.png"
+                                    alt="Claude 101 - Anthropic"
+                                    loading="lazy"
+                                />
+                            </button>
+                            <div class="cert-main">
+                                <div class="cert-name">
+                                    Claude 101 by Anthropic
+                                </div>
+                                <div class="cert-issuer">
+                                    Anthropic Skilljar
+                                </div>
+                            </div>
+                            <a
+                                href="https://drive.google.com/file/d/1JBrXMQAm2_6_cLTRX1d2qNEcf_5-z9NU/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cert-view"
+                                >View <span class="arrow">→</span></a
+                            >
+                        </div>
+                        <div class="cert-row reveal">
+                            <button
+                                type="button"
+                                class="cert-thumb"
+                                data-cert-img="certs/mongodb-rag.png"
+                                data-cert-url="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
+                                aria-label="View Building RAG Apps Using MongoDB certificate"
+                            >
+                                <img
+                                    src="certs/mongodb-rag.png"
+                                    alt="Building RAG Apps Using MongoDB certificate"
+                                    loading="lazy"
+                                />
+                            </button>
+                            <div class="cert-main">
+                                <div class="cert-name">
+                                    Building RAG Apps Using MongoDB
+                                </div>
+                                <div class="cert-issuer">
+                                    MongoDB University
+                                </div>
+                            </div>
+                            <a
+                                href="https://drive.google.com/file/d/1ym7vneyz-HJ6ArtzwwIprGFlvsnVhky7/view"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cert-view"
+                                >View <span class="arrow">→</span></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-num">07</span>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <a
+                            href="mailto:kbchinmay004@gmail.com"
+                            class="contact-item"
+                        >
+                            <span class="contact-icon">@</span>
+                            <span>
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value"
+                                    >kbchinmay004@gmail.com</span
+                                >
+                            </span>
+                        </a>
+                        <a href="tel:+917848895581" class="contact-item">
+                            <span class="contact-icon">#</span>
+                            <span>
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value"
+                                    >+91 78488 95581</span
+                                >
+                            </span>
+                        </a>
+                        <div class="contact-item">
+                            <span class="contact-icon">◉</span>
+                            <span>
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value"
+                                    >Hubballi, Karnataka, India</span
+                                >
+                            </span>
+                        </div>
+                    </div>
+                    <div class="socials reveal">
+                        <a
+                            href="https://www.linkedin.com/in/chinmay-betageri-60a4b924b/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            ><span>LinkedIn</span
+                            ><span class="arrow">→</span></a
+                        >
+                        <a
+                            href="https://github.com/Chinmay42010"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            ><span>GitHub</span><span class="arrow">→</span></a
+                        >
+                        <a
+                            href="https://leetcode.com/u/dtqNk5Nm4c/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            ><span>LeetCode</span
+                            ><span class="arrow">→</span></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="collab-card">
+                <div class="collab-main">
+                    <div class="collab-name">
+                        CHINMAY<span class="collab-dot">.</span>
+                    </div>
+                    <span class="collab-eyebrow">Let's Build Together</span>
+                    <h2 class="collab-title">
+                        Open to full-time opportunities and meaningful
+                        collaborations, eager to turn ideas into production
+                        grade software.
+                    </h2>
+                </div>
+                <div class="collab-side">
+                    <div class="collab-cta">
+                        <a
+                            href="https://www.linkedin.com/in/chinmay-betageri/"
+                            class="btn btn-primary"
+                            >Get In Touch</a
+                        >
+                        <a
+                            href="Chinmay Betageri.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-outline"
+                            >Resume</a
+                        >
+                    </div>
+                    <div class="collab-socials">
+                        <a
+                            href="https://www.linkedin.com/in/chinmay-betageri-60a4b924b/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="collab-social"
+                            >LinkedIn</a
+                        >
+                        <a
+                            href="https://github.com/Chinmay42010"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="collab-social"
+                            >GitHub</a
+                        >
+                        <a
+                            href="https://leetcode.com/u/dtqNk5Nm4c/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="collab-social"
+                            >LeetCode</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="collab-copy">
+                © 2026 Design &amp; Developed by Chinmay Betageri
+            </div>
+        </footer>
+
+        <div
+            id="lightbox"
+            class="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Certificate preview"
         >
-      </div>
-      <button id="lightboxClose" class="lightbox-close" aria-label="Close">
-        ✕
-      </button>
-    </div>
+            <div class="lightbox-inner">
+                <img id="lightboxImg" class="lightbox-img" src="" alt="" />
+                <a
+                    id="lightboxLink"
+                    class="lightbox-link"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Open in Google Drive <span class="arrow">→</span></a
+                >
+            </div>
+            <button
+                id="lightboxClose"
+                class="lightbox-close"
+                aria-label="Close"
+            >
+                ✕
+            </button>
+        </div>
 
-    <script src="script.js"></script>
-  </body>
+        <script src="script.js"></script>
+    </body>
 </html>
