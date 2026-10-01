@@ -16,17 +16,6 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="style.css" />
-        <script>
-            (function () {
-                var stored = localStorage.getItem("theme");
-                var theme =
-                    stored ||
-                    (window.matchMedia("(prefers-color-scheme: light)").matches
-                        ? "light"
-                        : "dark");
-                document.documentElement.dataset.theme = theme;
-            })();
-        </script>
     </head>
     <body>
         <div class="intro-overlay" id="introOverlay" aria-hidden="true">
@@ -49,23 +38,6 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button
-                id="themeToggle"
-                class="theme-toggle"
-                type="button"
-                role="switch"
-                aria-checked="false"
-                aria-label="Toggle theme"
-            >
-                <span class="theme-toggle-track">
-                    <span class="icon-moon" aria-hidden="true">☾</span>
-                    <span class="icon-sun" aria-hidden="true">☀</span>
-                    <span class="theme-toggle-knob">
-                        <span class="knob-moon" aria-hidden="true">☾</span>
-                        <span class="knob-sun" aria-hidden="true">☀</span>
-                    </span>
-                </span>
-            </button>
             <div
                 class="hamburger"
                 id="hamburger"
@@ -137,62 +109,15 @@
                     />
                 </div>
             </div>
-            <a href="#about" class="hero-scroll" aria-label="Scroll down">
-                <span>Scroll down</span>
+            <a
+                href="#about"
+                class="hero-scroll"
+                aria-label="Scroll to know more"
+            >
+                <span>Scroll to know more</span>
                 <span class="hero-scroll-arrow" aria-hidden="true">↓</span>
             </a>
         </section>
-
-        <div class="livery-band" aria-hidden="true">
-            <div class="livery-track">
-                <div class="livery-group">
-                    <span>JavaScript</span>
-                    <span class="livery-dot">●</span>
-                    <span>React.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>Express.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>Node.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>React</span>
-                    <span class="livery-dot">●</span>
-                    <span>MongoDB</span>
-                    <span class="livery-dot">●</span>
-                    <span>Python</span>
-                    <span class="livery-dot">●</span>
-                    <span>Tailwind CSS</span>
-                    <span class="livery-dot">●</span>
-                    <span>REST APIs</span>
-                    <span class="livery-dot">●</span>
-                    <span>C++</span>
-                    <span class="livery-dot">●</span>
-                    <span>Supabase</span>
-                    <span class="livery-dot">●</span>
-                </div>
-                <div class="livery-group">
-                    <span>JavaScript</span>
-                    <span class="livery-dot">●</span>
-                    <span>Node.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>Next.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>React.js</span>
-                    <span class="livery-dot">●</span>
-                    <span>Mongo DB</span>
-                    <span class="livery-dot">●</span>
-                    <span>Tailwind CSS</span>
-                    <span class="livery-dot">●</span>
-                    <span>REST APIs</span>
-                    <span class="livery-dot">●</span>
-                    <span>C++</span>
-                    <span class="livery-dot">●</span>
-                    <span>Supabase</span>
-                    <span class="livery-dot">●</span>
-                    <span>Python</span>
-                    <span class="livery-dot">●</span>
-                </div>
-            </div>
-        </div>
 
         <section id="about">
             <div class="container">
@@ -295,73 +220,44 @@
                 <div class="collapsible-body" id="skills-body">
                     <div class="skills-grid">
                         <div class="skill-card reveal">
-                            <div class="skill-card-title">Programming</div>
+                            <div class="skill-card-title">
+                                Languages &amp; Technical Skills
+                            </div>
                             <div class="skill-tags">
                                 <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">TypeScript</span>
                                 <span class="skill-tag">Python</span>
-                            </div>
-                        </div>
-                        <div class="skill-card reveal">
-                            <div class="skill-card-title">Frontend</div>
-                            <div class="skill-tags">
+                                <span class="skill-tag">C++</span>
                                 <span class="skill-tag">React</span>
-                                <span class="skill-tag">Next.js</span>
-                                <span class="skill-tag">HTML</span>
-                                <span class="skill-tag">CSS</span>
                                 <span class="skill-tag">Tailwind CSS</span>
                             </div>
                         </div>
                         <div class="skill-card reveal">
                             <div class="skill-card-title">
-                                Backend &amp; APIs
+                                Backend &amp; Databases
                             </div>
                             <div class="skill-tags">
                                 <span class="skill-tag">Node.js</span>
-                                <span class="skill-tag">Supabase</span>
                                 <span class="skill-tag">REST APIs</span>
-                                <span class="skill-tag"
-                                    >JWT Authentication</span
-                                >
-                                <span class="skill-tag">Zod</span>
-                            </div>
-                        </div>
-                        <div class="skill-card reveal">
-                            <div class="skill-card-title">Databases</div>
-                            <div class="skill-tags">
+                                <span class="skill-tag">WebSockets</span>
+                                <span class="skill-tag">PostgreSQL</span>
                                 <span class="skill-tag">MongoDB</span>
                                 <span class="skill-tag">Mongoose</span>
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Neon DB</span>
-                                <span class="skill-tag">Drizzle ORM</span>
                             </div>
                         </div>
                         <div class="skill-card reveal">
-                            <div class="skill-card-title">Developer Tools</div>
+                            <div class="skill-card-title">
+                                Tools &amp; Concepts
+                            </div>
                             <div class="skill-tags">
                                 <span class="skill-tag">Git</span>
                                 <span class="skill-tag">GitHub</span>
-                                <span class="skill-tag">VS Code</span>
                                 <span class="skill-tag">Postman</span>
-                            </div>
-                        </div>
-                        <div class="skill-card reveal">
-                            <div class="skill-card-title">AI Tools</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Claude</span>
-                                <span class="skill-tag">Kilo Code</span>
-                                <span class="skill-tag">Opencode</span>
-                                <span class="skill-tag">pi code</span>
-                            </div>
-                        </div>
-                        <div class="skill-card reveal">
-                            <div class="skill-card-title">Core Concepts</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">DSA</span>
-                                <span class="skill-tag">OOPs</span>
-                                <span class="skill-tag">Computer Networks</span>
-                                <span class="skill-tag">Agile</span>
-                                <span class="skill-tag">Responsive Design</span>
+                                <span class="skill-tag">CI/CD</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Nodemailer</span>
+                                <span class="skill-tag">JWT</span>
+                                <span class="skill-tag">Bcrypt</span>
                             </div>
                         </div>
                     </div>
@@ -385,6 +281,47 @@
                 </div>
                 <div class="collapsible-body" id="projects-body">
                     <div class="projects-grid">
+                        <div class="project-card reveal">
+                            <div class="project-head">
+                                <span class="project-num">00</span>
+                                <h3 class="project-title">
+                                    BACKEND LEDGER & TRANSACTION API
+                                </h3>
+                            </div>
+                            <p class="project-desc">
+                                Built a Backend ledger-based money movement with
+                                immutable transactions and live balance
+                                calculation. Implemented atomic debit/credit
+                                transfers, idempotency keys, JWT authentication,
+                                token blacklisting, email notifications, and a
+                                browser-based API playground.
+                            </p>
+                            <div class="project-tech">
+                                <span>NODE.JS</span>
+                                <span>EXPRESS</span>
+                                <span>MONGODB</span>
+                                <span>JWT</span>
+                                <span>MONGOOSE</span>
+                                <span>BCRYPT</span>
+                                <span>NODEMAILER</span>
+                            </div>
+                            <div class="project-links">
+                                <a
+                                    href="https://github.com/Chinmay42010/backend-ledger"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >GitHub Repo <span class="arrow">→</span></a
+                                >
+                                <a
+                                    href="https://backend-ledger-9ntq.onrender.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                    >Live URL <span class="arrow">→</span></a
+                                >
+                            </div>
+                        </div>
                         <div class="project-card reveal">
                             <div class="project-head">
                                 <span class="project-num">01</span>
@@ -645,6 +582,34 @@
                 </div>
                 <div class="collapsible-body" id="certifications-body">
                     <div class="cert-list">
+                        <div class="cert-row reveal">
+                            <button
+                                type="button"
+                                class="cert-thumb"
+                                data-cert-img="certs/aws-cpe.png"
+                                data-cert-url="https://drive.google.com/file/d/1gpJFCRcnhYUGos7Cz5pnP_0GfrKsh5xg/view?usp=sharing"
+                                aria-label="view Cloud Practitioner Essentials Certificate"
+                            >
+                                <img
+                                    src="certs/aws-cpe.png"
+                                    alt="view Cloud Practitioner Essentials Certificate"
+                                    loading="lazy"
+                                />
+                            </button>
+                            <div class="cert-main">
+                                <div class="cert-name">
+                                    Cloud Practitioner Essentials
+                                </div>
+                                <div class="cert-issuer">AWS SkillBuilder</div>
+                            </div>
+                            <a
+                                href="https://drive.google.com/file/d/1gpJFCRcnhYUGos7Cz5pnP_0GfrKsh5xg/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cert-view"
+                                >View <span class="arrow">→</span></a
+                            >
+                        </div>
                         <div class="cert-row reveal">
                             <button
                                 type="button"
