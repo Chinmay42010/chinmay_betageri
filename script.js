@@ -3,6 +3,42 @@ window.scrollTo(0, 0);
 
 document.documentElement.classList.add("js");
 
+const dyslexicToggle = document.getElementById("dyslexicToggle");
+
+// session-only mode: every fresh open starts normal; drop any stale saved pref
+localStorage.removeItem("dyslexic");
+
+function setDyslexic(on) {
+    if (on) {
+        document.documentElement.dataset.dyslexic = "true";
+    } else {
+        delete document.documentElement.dataset.dyslexic;
+    }
+    if (dyslexicToggle) {
+        dyslexicToggle.setAttribute("aria-pressed", String(on));
+    }
+}
+
+if (dyslexicToggle) {
+    let flipping = false;
+    dyslexicToggle.addEventListener("click", () => {
+        const next = document.documentElement.dataset.dyslexic !== "true";
+        if (reduceMotion || flipping) {
+            setDyslexic(next);
+            return;
+        }
+        flipping = true;
+        document.documentElement.classList.add("mode-flip");
+        window.setTimeout(() => {
+            setDyslexic(next);
+        }, 550);
+        window.setTimeout(() => {
+            document.documentElement.classList.remove("mode-flip");
+            flipping = false;
+        }, 1250);
+    });
+}
+
 const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
 ).matches;
@@ -219,5 +255,30 @@ if (heroResume) {
             a.download = "Chinmay Betageri FS.pdf";
             a.click();
         }
+    });
+}
+
+// touch press: mirror desktop down-and-up on every tap (min 140ms visible)
+if (window.matchMedia("(hover: none)").matches && !reduceMotion) {
+    const MIN_PRESS = 140;
+    document.querySelectorAll(".btn").forEach((btn) => {
+        let downAt = 0;
+        let timer = 0;
+        btn.addEventListener("pointerdown", () => {
+            window.clearTimeout(timer);
+            downAt = Date.now();
+            btn.classList.add("is-pressed");
+        });
+        const release = () => {
+            if (!btn.classList.contains("is-pressed")) return;
+            const wait = Math.max(0, MIN_PRESS - (Date.now() - downAt));
+            window.clearTimeout(timer);
+            timer = window.setTimeout(() => {
+                btn.classList.remove("is-pressed");
+            }, wait);
+        };
+        btn.addEventListener("pointerup", release);
+        btn.addEventListener("pointercancel", release);
+        btn.addEventListener("pointerleave", release);
     });
 }

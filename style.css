@@ -48,6 +48,7 @@
   --z-grain: 9999;
   --z-lightbox: 1000;
   --z-intro: 2000;
+  --z-wipe: 3000;
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,6 +71,69 @@
     --shadow: #181818;
     --card: #f7f7f7;
   }
+}
+
+:root[data-dyslexic="true"] {
+  --font: "OpenDyslexic", "Inter", -apple-system, system-ui, sans-serif;
+}
+
+/* Dyslexic mode switch: single red wipe (class lives ~1.2s per toggle) */
+.dyslexic-wipe {
+  position: fixed;
+  inset: 0;
+  background: var(--primary);
+  z-index: var(--z-wipe);
+  pointer-events: none;
+  transform: translate3d(-101%, 0, 0);
+}
+
+html.mode-flip .dyslexic-wipe {
+  will-change: transform;
+  animation: wipeAcross 1.15s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes wipeAcross {
+  0% {
+    transform: translate3d(-101%, 0, 0);
+  }
+  45%,
+  55% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(101%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.mode-flip .dyslexic-wipe {
+    animation: none;
+  }
+}
+
+/* Dyslexic mode: wider glyphs need smaller display sizes + roomier text */
+:root[data-dyslexic="true"] body {
+  line-height: 1.65;
+}
+
+:root[data-dyslexic="true"] .hero-title {
+  font-size: clamp(1.9rem, 1rem + 4.5vw, 3.75rem);
+}
+
+:root[data-dyslexic="true"] .section-title {
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 1.7rem);
+}
+
+:root[data-dyslexic="true"] .stat-value {
+  font-size: clamp(2.6rem, 1.5rem + 5vw, 3.75rem);
+}
+
+:root[data-dyslexic="true"] .project-num {
+  font-size: clamp(2.25rem, 1.5rem + 3.75vw, 3rem);
+}
+
+:root[data-dyslexic="true"] .collab-name {
+  font-size: clamp(1.5rem, 1.1rem + 3vw, 1.9rem);
 }
 
 * {
@@ -177,6 +241,8 @@ a:focus-visible {
   margin: 0 auto;
 }
 
+/* ============ FONT ROLES ============ */
+.skill-card-title,
 /* ============ INTRO OVERLAY ============ */
 .intro-overlay {
   position: fixed;
@@ -435,6 +501,52 @@ html.js body.ready .hero-meta {
   width: 100%;
 }
 
+.dyslexic-toggle {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  box-shadow: 3px 3px 0 var(--shadow);
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .dyslexic-toggle:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--shadow);
+  }
+}
+
+.dyslexic-toggle:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--shadow);
+}
+
+.dyslexic-toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.dyslexic-toggle[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -626,6 +738,7 @@ html.js body.ready .hero-meta {
   border: 2px solid var(--border);
   box-shadow: 4px 4px 0 var(--shadow);
   cursor: pointer;
+  touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   transition:
@@ -636,12 +749,15 @@ html.js body.ready .hero-meta {
     border-color 0.2s ease;
 }
 
-.btn:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--shadow);
+@media (hover: hover) {
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--shadow);
+  }
 }
 
-.btn:active {
+.btn:active,
+.btn.is-pressed {
   transform: translate(4px, 4px);
   box-shadow: 0 0 0 var(--shadow);
 }
@@ -656,11 +772,14 @@ html.js body.ready .hero-meta {
   color: var(--on-primary);
 }
 
-.btn-primary:hover {
-  background: var(--primary-hover);
+@media (hover: hover) {
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
 }
 
-.btn-primary:active {
+.btn-primary:active,
+.btn-primary.is-pressed {
   background: var(--primary-active);
 }
 
@@ -670,8 +789,10 @@ html.js body.ready .hero-meta {
   border-color: var(--border);
 }
 
-.btn-outline:hover {
-  background: var(--outline-hover-bg);
+@media (hover: hover) {
+  .btn-outline:hover {
+    background: var(--outline-hover-bg);
+  }
 }
 
 .hero-meta {
@@ -1750,14 +1871,6 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .btn {
-    box-shadow: 3px 3px 0 var(--shadow);
-  }
-
-  .btn:hover {
-    box-shadow: 6px 6px 0 var(--shadow);
-  }
-
   .intro-monogram {
     font-size: 56px;
     letter-spacing: -2.24px;
