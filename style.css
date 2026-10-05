@@ -73,7 +73,7 @@
   }
 }
 
-:root[data-dyslexic="true"] {
+:root[data-mode="dyslexic"] {
   --font: "OpenDyslexic", "Inter", -apple-system, system-ui, sans-serif;
 }
 
@@ -112,28 +112,272 @@ html.mode-flip .dyslexic-wipe {
 }
 
 /* Dyslexic mode: wider glyphs need smaller display sizes + roomier text */
-:root[data-dyslexic="true"] body {
+:root[data-mode="dyslexic"] body {
   line-height: 1.65;
 }
 
-:root[data-dyslexic="true"] .hero-title {
+:root[data-mode="dyslexic"] .hero-title {
   font-size: clamp(1.9rem, 1rem + 4.5vw, 3.75rem);
 }
 
-:root[data-dyslexic="true"] .section-title {
+:root[data-mode="dyslexic"] .section-title {
   font-size: clamp(1.4rem, 1rem + 1.5vw, 1.7rem);
 }
 
-:root[data-dyslexic="true"] .stat-value {
-  font-size: clamp(2.6rem, 1.5rem + 5vw, 3.75rem);
-}
-
-:root[data-dyslexic="true"] .project-num {
+:root[data-mode="dyslexic"] .project-num {
   font-size: clamp(2.25rem, 1.5rem + 3.75vw, 3rem);
 }
 
-:root[data-dyslexic="true"] .collab-name {
+:root[data-mode="dyslexic"] .collab-name {
   font-size: clamp(1.5rem, 1.1rem + 3vw, 1.9rem);
+}
+
+/* ============ OVERSIMPLIFIED MODE (karpathy-clean, forced paper) ============ */
+:root[data-mode="oversimplified"] {
+  --font: Georgia, "Times New Roman", serif;
+  --font-ui: Georgia, "Times New Roman", serif;
+  --canvas: #ffffff;
+  --canvas-elevated: transparent;
+  --ink: #1a1a1a;
+  --body: #333333;
+  --muted: #555555;
+  --muted-soft: #666666;
+  --hairline: #e2e2e2;
+  --primary: #1a0dab;
+  --primary-hover: #120a8a;
+  --primary-active: #0d0670;
+  --on-primary: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.92);
+  --outline-hover-bg: rgba(0, 0, 0, 0.04);
+  --grid-line: transparent;
+  --border: #1a1a1a;
+  --shadow: transparent;
+  --card: transparent;
+}
+
+:root[data-mode="oversimplified"] body {
+  line-height: 1.7;
+}
+
+:root[data-mode="oversimplified"] body::before,
+:root[data-mode="oversimplified"] body::after {
+  display: none;
+}
+
+/* sentence case + calm spacing everywhere */
+:root[data-mode="oversimplified"] body,
+:root[data-mode="oversimplified"] body * {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Arial for UI chrome, Georgia everywhere else */
+:root[data-mode="oversimplified"] .nav-links a,
+:root[data-mode="oversimplified"] .mode-toggle,
+:root[data-mode="oversimplified"] .btn,
+:root[data-mode="oversimplified"] .hero-label,
+:root[data-mode="oversimplified"] .hero-details,
+:root[data-mode="oversimplified"] .hero-meta,
+:root[data-mode="oversimplified"] .skill-tag,
+:root[data-mode="oversimplified"] .project-tech span,
+:root[data-mode="oversimplified"] .project-link,
+:root[data-mode="oversimplified"] .info-label,
+:root[data-mode="oversimplified"] .info-value,
+:root[data-mode="oversimplified"] .exp-date,
+:root[data-mode="oversimplified"] .exp-company,
+:root[data-mode="oversimplified"] .edu-date,
+:root[data-mode="oversimplified"] .edu-meta,
+:root[data-mode="oversimplified"] .edu-school,
+:root[data-mode="oversimplified"] .cert-issuer,
+:root[data-mode="oversimplified"] .cert-view,
+:root[data-mode="oversimplified"] .collab-eyebrow,
+:root[data-mode="oversimplified"] .collab-social,
+:root[data-mode="oversimplified"] .collab-copy,
+:root[data-mode="oversimplified"] .lightbox-link {
+  font-family: var(--font-ui);
+}
+
+/* full-bleed dense column: tiny side margins, info sooner */
+:root[data-mode="oversimplified"] .container,
+:root[data-mode="oversimplified"] .hero-inner {
+  max-width: none;
+}
+
+:root[data-mode="oversimplified"] section {
+  padding: 28px 20px;
+}
+
+:root[data-mode="oversimplified"] .hero {
+  padding: calc(var(--nav-h) + 16px) 20px 24px;
+}
+
+:root[data-mode="oversimplified"] .hero-inner {
+  grid-template-columns: 1fr auto;
+  gap: var(--s-md);
+  align-items: start;
+}
+
+:root[data-mode="oversimplified"] .hero-visual {
+  justify-self: end;
+  width: 320px;
+  margin: 20px 40px 0 0;
+}
+
+:root[data-mode="oversimplified"] .hero-sub {
+  margin-bottom: var(--s-xs);
+}
+
+:root[data-mode="oversimplified"] .hero-meta {
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+:root[data-mode="oversimplified"] .section-header {
+  margin-bottom: var(--s-sm);
+}
+
+:root[data-mode="oversimplified"] .about-grid {
+  gap: var(--s-md);
+}
+
+:root[data-mode="oversimplified"] .about-text p {
+  margin-bottom: 8px;
+}
+
+:root[data-mode="oversimplified"] .project-desc {
+  margin-bottom: var(--s-xs);
+}
+
+:root[data-mode="oversimplified"] .project-tech {
+  margin-bottom: var(--s-xs);
+}
+
+:root[data-mode="oversimplified"] .hero-photo {
+  border: none;
+  box-shadow: none;
+}
+
+:root[data-mode="oversimplified"] .hero-photo:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* flat cards: dividers, not boxes */
+:root[data-mode="oversimplified"] .skill-card,
+:root[data-mode="oversimplified"] .exp-card,
+:root[data-mode="oversimplified"] .project-card,
+:root[data-mode="oversimplified"] .collab-card {
+  border: none;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* flat buttons: border box, no travel */
+:root[data-mode="oversimplified"] .btn,
+:root[data-mode="oversimplified"] .mode-toggle {
+  border-width: 1px;
+  box-shadow: none;
+}
+
+:root[data-mode="oversimplified"] .btn:hover,
+:root[data-mode="oversimplified"] .btn:active,
+:root[data-mode="oversimplified"] .btn.is-pressed,
+:root[data-mode="oversimplified"] .mode-toggle:hover,
+:root[data-mode="oversimplified"] .mode-toggle:active {
+  transform: none;
+  box-shadow: none;
+}
+
+/* blue links, never underlined */
+:root[data-mode="oversimplified"] .project-link {
+  border-bottom: none;
+}
+
+:root[data-mode="oversimplified"] a:hover {
+  text-decoration: none;
+}
+
+/* plain-list treatment: content as default HTML, no card chrome */
+:root[data-mode="oversimplified"] .section-line,
+:root[data-mode="oversimplified"] .project-num,
+:root[data-mode="oversimplified"] .cert-thumb {
+  display: none;
+}
+
+:root[data-mode="oversimplified"] .hero-label {
+  border: none;
+  padding: 0;
+}
+
+:root[data-mode="oversimplified"] .skill-card-title {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+:root[data-mode="oversimplified"] .skill-card-title::after {
+  content: ":";
+}
+
+:root[data-mode="oversimplified"] .skill-tag,
+:root[data-mode="oversimplified"] .project-tech span {
+  display: block;
+  border: none;
+  padding: 3px 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+:root[data-mode="oversimplified"] .exp-row {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 4px;
+}
+
+:root[data-mode="oversimplified"] .exp-date,
+:root[data-mode="oversimplified"] .edu-meta {
+  border: none;
+  padding: 0;
+}
+
+:root[data-mode="oversimplified"] .exp-list li {
+  border-bottom: none;
+  padding: 4px 0 4px var(--s-sm);
+}
+
+:root[data-mode="oversimplified"] .about-info {
+  border-left: none;
+  padding-left: 0;
+}
+
+:root[data-mode="oversimplified"] .info-row {
+  border-bottom: none;
+  padding: 4px 0;
+}
+
+:root[data-mode="oversimplified"] .hero-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+:root[data-mode="oversimplified"] .hero-detail-dot {
+  display: none;
+}
+
+:root[data-mode="oversimplified"] .hero-detail {
+  display: inline;
+  padding: 3px 0;
+}
+
+:root[data-mode="oversimplified"] .hero-detail-label {
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 0;
 }
 
 * {
@@ -227,7 +471,8 @@ img {
 }
 
 section,
-.hero {
+.hero,
+footer {
   scroll-margin-top: var(--nav-h);
 }
 
@@ -408,10 +653,6 @@ html.js body.ready .hero-meta {
     transition: none !important;
   }
 
-  .hero-scroll {
-    animation: none !important;
-  }
-
   .hero-details .press,
   .hero-meta .press {
     animation: none !important;
@@ -501,7 +742,7 @@ html.js body.ready .hero-meta {
   width: 100%;
 }
 
-.dyslexic-toggle {
+.mode-toggle {
   font-family: var(--font);
   font-size: 11px;
   font-weight: 700;
@@ -526,23 +767,23 @@ html.js body.ready .hero-meta {
 }
 
 @media (hover: hover) {
-  .dyslexic-toggle:hover {
+  .mode-toggle:hover {
     transform: translate(-1px, -1px);
     box-shadow: 4px 4px 0 var(--shadow);
   }
 }
 
-.dyslexic-toggle:active {
+.mode-toggle:active {
   transform: translate(3px, 3px);
   box-shadow: 0 0 0 var(--shadow);
 }
 
-.dyslexic-toggle:focus-visible {
+.mode-toggle:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
-.dyslexic-toggle[aria-pressed="true"] {
+.mode-toggle.is-on {
   background: var(--primary);
   color: var(--on-primary);
 }
@@ -844,43 +1085,6 @@ html.js body.ready .hero-meta {
   animation: blink 1.5s step-end infinite;
 }
 
-.hero-scroll {
-  display: flex;
-  position: absolute;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  z-index: 2;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: var(--muted);
-  animation: scrollBounce 1.6s ease infinite;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-}
-
-.hero-scroll-arrow {
-  font-size: 14px;
-  line-height: 1;
-}
-
-@keyframes scrollBounce {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateX(-50%) translateY(6px);
-    opacity: 1;
-  }
-}
-
 @keyframes blink {
   50% {
     opacity: 0.35;
@@ -898,14 +1102,6 @@ section {
   align-items: center;
   gap: var(--s-sm);
   margin-bottom: var(--s-xl);
-}
-
-.section-num {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  color: var(--primary);
 }
 
 .section-title {
@@ -972,45 +1168,6 @@ section {
   font-size: 14px;
   color: var(--ink);
   text-align: right;
-}
-
-/* ============ STATS ============ */
-.stats-band {
-  border-bottom: 1px solid var(--hairline);
-  padding: 0 clamp(1.5rem, 5vw, 3rem);
-}
-
-.stats-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: var(--s-xl) 0;
-}
-
-.stat {
-  border-left: 1px solid var(--hairline);
-  padding-left: var(--s-sm);
-}
-
-.stat:first-child {
-  border-left: none;
-  padding-left: 0;
-}
-
-.stat-value {
-  font-size: clamp(3.5rem, 2rem + 7vw, 5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -1.6px;
-  color: var(--ink);
-}
-
-.stat-label {
-  margin-top: var(--s-xxs);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 /* ============ SKILLS ============ */
@@ -1444,79 +1601,23 @@ section {
   color: var(--primary);
 }
 
-/* ============ CONTACT ============ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-xl);
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: var(--s-xs);
-  padding: var(--s-xs) 0;
-  border-bottom: 1px solid var(--hairline);
-  cursor: pointer;
-}
-
-.contact-icon {
-  color: var(--primary);
-  width: 24px;
-  text-align: center;
-}
-
-.contact-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.contact-value {
-  display: block;
-  font-size: 14px;
-  color: var(--ink);
-  margin-top: 2px;
-}
-
-.socials {
-  display: flex;
-  flex-direction: column;
-}
-
-.social-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--s-xs) 0;
-  border-bottom: 1px solid var(--hairline);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.65px;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-}
-
-.social-link .arrow {
-  color: var(--primary);
-  transition: transform 0.2s ease;
-}
-
-.social-link:hover {
-  color: var(--primary);
-}
-
-.social-link:hover .arrow {
-  transform: translateX(4px);
-}
-
 /* ============ FOOTER / COLLAB CARD ============ */
 footer {
   border-top: 1px solid var(--hairline);
   padding: var(--s-md) clamp(1.5rem, 5vw, 3rem) var(--s-md);
+}
+
+/* Contact focus: nav Contact isolates the footer card, centered */
+body.contact-focus section {
+  display: none;
+}
+
+body.contact-focus footer {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: none;
 }
 
 .collab-card {
@@ -1791,16 +1892,7 @@ footer {
     display: none;
   }
 
-  .hero-scroll {
-    display: flex;
-    bottom: 12px;
-  }
-
   .hero-meta {
-    display: none;
-  }
-
-  .stats-band {
     display: none;
   }
 
@@ -1812,8 +1904,7 @@ footer {
     margin-bottom: 0;
   }
 
-  .about-grid,
-  .contact-grid {
+  .about-grid {
     grid-template-columns: 1fr;
     gap: var(--s-xl);
   }
@@ -1835,21 +1926,6 @@ footer {
 
   .cert-view {
     grid-column: 1 / -1;
-  }
-
-  .stats-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s-md) 0;
-  }
-
-  .stat {
-    border-left: none;
-    padding-left: 0;
-  }
-
-  .stat:nth-child(odd) {
-    border-right: 1px solid var(--hairline);
-    padding-right: var(--s-sm);
   }
 
   .collab-card {
@@ -1897,10 +1973,6 @@ footer {
     font-size: 18px;
   }
 
-  .stats-inner {
-    gap: var(--s-sm) 0;
-  }
-
   .skills-grid {
     grid-template-columns: 1fr;
   }
@@ -1920,5 +1992,26 @@ footer {
 
   .collab-socials {
     gap: var(--s-xs);
+  }
+}
+
+/* Oversimplified mobile: stack hero, neutralize desktop offsets */
+@media (max-width: 768px) {
+  :root[data-mode="oversimplified"] .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  :root[data-mode="oversimplified"] .hero-visual {
+    order: -1;
+    width: min(78vw, 300px);
+    margin: 0 auto;
+  }
+
+  :root[data-mode="oversimplified"] section {
+    padding: 24px 16px;
+  }
+
+  :root[data-mode="oversimplified"] .hero {
+    padding: calc(var(--nav-h) + 16px) 16px 24px;
   }
 }

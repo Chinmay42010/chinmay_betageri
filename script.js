@@ -3,34 +3,56 @@ window.scrollTo(0, 0);
 
 document.documentElement.classList.add("js");
 
-const dyslexicToggle = document.getElementById("dyslexicToggle");
+const modeToggle = document.getElementById("modeToggle");
+const modeLabel = document.getElementById("modeLabel");
 
-// session-only mode: every fresh open starts normal; drop any stale saved pref
+const MODES = ["normal", "dyslexic", "oversimplified"];
+const MODE_LABEL = {
+    normal: "Nonchalant",
+    dyslexic: "Dyslexic",
+    oversimplified: "Oversimplified",
+};
+
+// session-only modes: every fresh open starts normal; drop any stale saved pref
 localStorage.removeItem("dyslexic");
 
-function setDyslexic(on) {
-    if (on) {
-        document.documentElement.dataset.dyslexic = "true";
+function setMode(mode) {
+    if (mode === "normal") {
+        delete document.documentElement.dataset.mode;
     } else {
-        delete document.documentElement.dataset.dyslexic;
+        document.documentElement.dataset.mode = mode;
     }
-    if (dyslexicToggle) {
-        dyslexicToggle.setAttribute("aria-pressed", String(on));
+    // button previews the NEXT mode, not the current one
+    const next = MODES[(MODES.indexOf(mode) + 1) % MODES.length];
+    if (modeLabel) {
+        modeLabel.textContent = MODE_LABEL[next];
+    }
+    if (modeToggle) {
+        modeToggle.setAttribute(
+            "aria-label",
+            "Reading mode: " +
+                MODE_LABEL[mode] +
+                ". Activate to switch to " +
+                MODE_LABEL[next] +
+                " mode.",
+        );
+        modeToggle.classList.toggle("is-on", mode !== "normal");
     }
 }
 
-if (dyslexicToggle) {
+if (modeToggle) {
     let flipping = false;
-    dyslexicToggle.addEventListener("click", () => {
-        const next = document.documentElement.dataset.dyslexic !== "true";
+    modeToggle.addEventListener("click", () => {
+        const current = document.documentElement.dataset.mode || "normal";
+        const next = MODES[(MODES.indexOf(current) + 1) % MODES.length];
         if (reduceMotion || flipping) {
-            setDyslexic(next);
+            setMode(next);
             return;
         }
         flipping = true;
         document.documentElement.classList.add("mode-flip");
         window.setTimeout(() => {
-            setDyslexic(next);
+            setMode(next);
         }, 550);
         window.setTimeout(() => {
             document.documentElement.classList.remove("mode-flip");
@@ -86,6 +108,33 @@ function toggleMenu() {
 document.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", closeMenu);
 });
+
+// nav Contact isolates the footer card; any other nav target restores the page
+const contactNavLink = document.querySelector(
+    '.nav-links a[href="#contact"]',
+);
+
+if (contactNavLink) {
+    contactNavLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.body.classList.add("contact-focus");
+        const footer = document.getElementById("contact");
+        if (footer) {
+            footer.scrollIntoView({
+                behavior: reduceMotion ? "auto" : "smooth",
+                block: "center",
+            });
+        }
+    });
+}
+
+document
+    .querySelectorAll('.nav-links a:not([href="#contact"]), .logo')
+    .forEach((link) => {
+        link.addEventListener("click", () => {
+            document.body.classList.remove("contact-focus");
+        });
+    });
 
 document.addEventListener("click", (e) => {
     if (navLinks.classList.contains("active") && !nav.contains(e.target)) {
@@ -227,6 +276,7 @@ if (
     let mx = 0,
         my = 0;
     heroVisual.addEventListener("mousemove", (e) => {
+        if (document.documentElement.dataset.mode === "oversimplified") return;
         const r = heroVisual.getBoundingClientRect();
         mx = (e.clientX - r.left) / r.width - 0.5;
         my = (e.clientY - r.top) / r.height - 0.5;
